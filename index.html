@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гульмира Арсаланова | Оформление праздничных столов</title>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: var(--dark); background: var(--light); }
+        header { background: #fff; padding: 2rem; text-align: center; border-bottom: 3px solid var(--gold); }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
+        .hero { text-align: center; padding: 50px 20px; background: white; margin-bottom: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .hero h1 { color: var(--gold); margin-bottom: 10px; }
+        
+        .bonus-badge { background: #e74c3c; color: white; padding: 10px 20px; border-radius: 50px; display: inline-block; font-weight: bold; margin-top: 10px; }
+
+        .pricing { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .price-card { flex: 1; min-width: 280px; background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; text-align: center; transition: 0.3s; }
+        .price-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .price-card h3 { color: var(--gold); font-size: 1.5rem; }
+        .price-card .amount { font-size: 2rem; font-weight: bold; display: block; margin: 15px 0; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 40px 0; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; background: #ddd; }
+
+        .order-form { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .order-form h2 { text-align: center; color: var(--gold); }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: var(--gold); color: white; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #b8952e; }
+
+        footer { text-align: center; padding: 40px; background: var(--dark); color: white; margin-top: 40px; }
+        .contacts a { color: var(--gold); text-decoration: none; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Гульмира Арсаланова</h1>
+    <p>Профессиональное оформление столов и домашняя кухня на ваши мероприятия</p>
+</header>
+
+<div class="container">
+    <div class="hero">
+        <h2>Сделаем ваш праздник вкусным и красивым!</h2>
+        <p>Салаты, горячие блюда, нежная самса и изысканная сервировка стола.</p>
+        <!-- <div class="bonus-badge">🎁 2 пирога к чаю — всегда в ПОДАРОК!</div> -->
+    </div>
+
+    <div class="pricing">
+      <div class="price-card">
+          <h3>Вариант "Эконом"</h3>
+          <p>Если вы сами покупаете продукты</p>
+          <span class="amount">3 000 тг</span>
+          <p>за одного человека</p>
+          <p style="font-size: 0.9rem; color: #555;">Оформление стола включено в стоимость</p>
+      </div>
+
+      <div class="price-card" style="border: 2px solid var(--gold); position: relative;">
+          <div class="bonus-badge" style="margin-bottom: 10px;">🎁 2 ПИРОГА В ПОДАРОК</div>
+          <h3>Сет "Всё включено"</h3>
+          <p>Мы сами закупаем все продукты</p>
+          <span class="amount">150 000 тг</span>
+          <p><strong>Сет рассчитан на 20 человек</strong></p>
+          <p style="font-size: 0.9rem; color: #555;">Оформление стола включено в стоимость</p>
+      </div>
+  </div>
+
+    <h2 style="text-align: center; margin-top: 50px;">Галерея наших работ</h2>
+    <div class="gallery">
+        <img src="https://via.placeholder.com/300x200?text=Салаты" alt="Салаты">
+        <img src="https://via.placeholder.com/300x200?text=Самса" alt="Самса">
+        <img src="https://via.placeholder.com/300x200?text=Оформление" alt="Оформление стола">
+        <img src="https://via.placeholder.com/300x200?text=Пироги" alt="Пироги в подарок">
+    </div>
+
+    <div class="order-form" id="order">
+        <h2>Записаться на дату</h2>
+        <form action="https://formspree.io/f/your_id_here" method="POST">
+            <div class="form-group">
+                <label>Ваше имя</label>
+                <input type="text" name="name" placeholder="Как к вам обращаться?" required>
+            </div>
+            <div class="form-group">
+                <label>Дата мероприятия</label>
+                <input type="date" name="event_date" required>
+            </div>
+            <div class="form-group">
+                <label>Вариант закупа</label>
+                <select name="type" required>
+                    <option value="client_buys">Я сам(а) куплю продукты (3000 тг/чел)</option>
+                    <option value="we_buy">Закуп от Гульмиры (150 000 тг)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Что хотите видеть на столе? (меню, пожелания)</label>
+                <textarea name="message" rows="4" placeholder="Например: самса, 3 вида салата, бешбармак..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Ваш телефон</label>
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <button type="submit">Отправить заявку Гульмире</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div class="contacts">
+        <h3>Контакты для связи:</h3>
+        <p>Телефон / WhatsApp: <a href="https://wa.me/7XXXXXXXXXX">+7 (707) 496-38-62</a></p>
+        <p>г. Алматы</p>
+    </div>
+    <p style="margin-top: 20px; opacity: 0.6;">&copy; 2026</p>
+</footer>
+
+</body>
+</html>
