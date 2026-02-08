@@ -73,13 +73,97 @@
       </div>
   </div>
 
-    <h2 style="text-align: center; margin-top: 50px;">Галерея наших работ</h2>
-    <div class="gallery">
-        <img src="https://via.placeholder.com/300x200?text=Салаты" alt="Салаты">
-        <img src="https://via.placeholder.com/300x200?text=Самса" alt="Самса">
-        <img src="https://via.placeholder.com/300x200?text=Оформление" alt="Оформление стола">
-        <img src="https://via.placeholder.com/300x200?text=Пироги" alt="Пироги в подарок">
+  <h2 style="text-align: center; margin-top: 50px;">Галерея наших работ</h2>
+
+  <div class="slider-container">
+      <button class="slider-btn prev-btn" onclick="scrollGallery(-1)">❮</button>
+      
+      <div class="slider-wrapper">
+        <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        
+        <div class="gallery-track" id="galleryTrack">
+            <div class="photo-card"><img src="images/cezar.jpeg" alt="Цезарь"></div>
+            <div class="photo-card"><img src="images/ananasovyi.jpeg" alt="Ананасовый"></div>
+            <div class="photo-card"><img src="images/gnezdo.jpeg" alt="Гнездо"></div>
+            <div class="photo-card"><img src="images/granata.jpeg" alt="Гранатовый"></div>
+            <div class="photo-card"><img src="images/malibu.jpeg" alt="Малибу"></div>
+            <div class="photo-card"><img src="images/mimoza.jpeg" alt="Мимоза"></div>
+            <div class="photo-card"><img src="images/minister.jpeg" alt="Министерский"></div>
+            <div class="photo-card"><img src="images/nezhnost.jpeg" alt="Нежность"></div>
+            <div class="photo-card"><img src="images/seledka.jpeg" alt="Селедка под шубой"></div>
+        </div>
+    
+        <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
     </div>
+    
+    <style>
+        /* Этот стиль сделает галерею современной */
+        .slider-wrapper {
+            display: flex;
+            align-items: center;
+            max-width: 100%;
+            margin: 20px auto;
+            position: relative;
+        }
+    
+        .gallery-track {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            scrollbar-width: none; /* Убирает некрасивую полосу прокрутки */
+        }
+    
+        .gallery-track::-webkit-scrollbar { display: none; }
+    
+        .photo-card {
+            flex: 0 0 280px; /* Фиксированная ширина карточки */
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1); /* Мягкая тень */
+            transition: transform 0.3s;
+        }
+    
+        .photo-card:hover {
+            transform: scale(1.03); /* Увеличение при наведении */
+        }
+    
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Важно: фото заполнит карточку без искажений */
+        }
+    
+        .nav-btn {
+            background: #d4af37;
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 5;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .nav-btn:hover { background: #b8952e; }
+    </style>
+    
+    <script>
+        // Функция для работы кнопок
+        function moveSlide(direction) {
+            const track = document.getElementById('galleryTrack');
+            const scrollStep = 300; // На сколько пикселей двигать
+            track.scrollLeft += direction * scrollStep;
+        }
+    </script>
+  
+      <button class="slider-btn next-btn" onclick="scrollGallery(1)">❯</button>
+  </div>
 
     <div class="order-form" id="order">
         <h2>Записаться на дату</h2>
